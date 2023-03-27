@@ -1,5 +1,7 @@
 
+using APIdotnet.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace APIdotnet
 {
@@ -17,7 +19,7 @@ namespace APIdotnet
             {
                 options.UseMySql(ConnectionToMysqlStr, ServerVersion.AutoDetect(ConnectionToMysqlStr));
             });
-     
+ 
             builder.Services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API AlimBio", Version = "v1" });
@@ -46,7 +48,7 @@ namespace APIdotnet
                     Id = "Bearer"
                 }
             },
-            new string[] { }
+            Array.Empty<string>()
         }
     };
 
