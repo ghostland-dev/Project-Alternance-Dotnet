@@ -9,7 +9,7 @@ namespace APIdotnet.Data
         {
         }
 
-        public DbSet<APIdotnet.Models.Utilisauteur> Utilisauteurs { get; set; }
+        public DbSet<APIdotnet.Models.Utilisateur> Utilisauteurs { get; set; }
         public DbSet<APIdotnet.Models.Entreprise> Entreprises { get; set; }
         public DbSet<APIdotnet.Models.Site> Sites { get; set; }
         public DbSet<APIdotnet.Models.Departement> Departements { get; set; }

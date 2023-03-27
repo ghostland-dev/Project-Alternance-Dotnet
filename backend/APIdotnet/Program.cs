@@ -1,5 +1,6 @@
 
 using APIdotnet.Data;
+using APIdotnet.Services.UtilisateurService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -13,13 +14,13 @@ namespace APIdotnet
 
             // Add services to the container.
 
-            var ConnectionToMysqlStr = builder.Configuration.GetConnectionString("MySQLConntectionStr") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."); ;
+            var ConnectionToMysqlStr = builder.Configuration.GetConnectionString("MySQLstring") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."); ;
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseMySql(ConnectionToMysqlStr, ServerVersion.AutoDetect(ConnectionToMysqlStr));
             });
- 
+
             builder.Services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API AlimBio", Version = "v1" });
@@ -54,6 +55,8 @@ namespace APIdotnet
 
                 c.AddSecurityRequirement(securityRequirement);
             });
+
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
