@@ -17,7 +17,7 @@ namespace APIdotnet
             {
                 options.UseMySql(ConnectionToMysqlStr, ServerVersion.AutoDetect(ConnectionToMysqlStr));
             });
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+     
             builder.Services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API AlimBio", Version = "v1" });
