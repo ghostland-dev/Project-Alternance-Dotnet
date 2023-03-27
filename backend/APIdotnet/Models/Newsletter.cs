@@ -18,7 +18,7 @@ namespace APIdotnet.Models
 
     public class UniqueEmailAttribute : ValidationAttribute
     {
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        protected override ValidationResult? IsValid(object value, ValidationContext? validationContext)
         {
             var dbContext = (ApplicationDbContext)validationContext.GetService(typeof(ApplicationDbContext));
             var email = (string)value;
